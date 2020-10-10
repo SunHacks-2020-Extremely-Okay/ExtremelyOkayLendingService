@@ -22,3 +22,5 @@ var itemsArray = [
         "sku": "ASU12345"
     }
 ]
+
+module.exports = itemsArray
