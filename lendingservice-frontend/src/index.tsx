@@ -7,11 +7,10 @@ import './index.css';
 import './App.css';
 
 // Import additional custom functions/classes
-// import MapDisplay from './MapDisplay';
 import Header from './Header';
 import ItemBrowse from './ItemBrowse';
 import MainNav from './MainNav';
-
+import MapDisplay from './MapDisplay';
 
 
 
@@ -21,7 +20,7 @@ function App() {
       <Header />
       <MainNav />
       <ItemBrowse />
-      {/* <MapDisplay /> */}
+      <MapDisplay />
     </div>
   );
 }
