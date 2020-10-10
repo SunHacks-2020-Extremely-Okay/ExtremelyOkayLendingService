@@ -3,7 +3,8 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import * as serviceWorker from './serviceWorker';
 import './App.css';
-import {Map, Marker, GoogleApiWrapper } from 'google-maps-react';
+import MapDisplay from './MapDisplay';
+
 
 function  Header() {
   return (
@@ -41,26 +42,16 @@ function ItemBrowse() {
   )
 }
 
-function Map() {
-  return (
-    <div className="Map">
-      
-    </div>
-  )
-}
-
 function App() {
   return (
     <div className="App">
       <Header />
       <MainNav />
       <ItemBrowse />
-      <Map />
+      <MapDisplay />
     </div>
   );
 }
-
-
 
 ReactDOM.render(
   <React.StrictMode>
