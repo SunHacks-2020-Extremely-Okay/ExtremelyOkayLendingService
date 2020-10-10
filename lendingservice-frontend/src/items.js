@@ -14,7 +14,7 @@ var itemsArray = [
         "item_id": 34573456,
         "user_id": "jwdouble",
         "category": 5,
-        "location_x": 33.3880863,
+        "location_x": 60.3880863,
         "location_y": -111.8722263,
         "verified": true,
         "available": false,
