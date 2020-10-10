@@ -69,6 +69,25 @@ html {
   background-color: #DED2A8;
 }
 
+#mileRange {
+  display: flex;
+  flex-direction: row;
+  float: left;
+}
+
+.leftNav {
+  border-color: #699E3C;
+  border-style: solid;
+  border-width: 1px;
+  align-self: center;
+  padding: 10px;
+  color: #302718;
+}
+
+#equipmentSelector {
+  border-color: #302718;
+}
+
 
 /* old stuff */
 @media (prefers-reduced-motion: no-preference) {
