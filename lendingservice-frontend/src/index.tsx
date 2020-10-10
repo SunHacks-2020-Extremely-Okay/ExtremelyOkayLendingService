@@ -1,8 +1,66 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
 import * as serviceWorker from './serviceWorker';
+import './App.css';
+import {Map, Marker, GoogleApiWrapper } from 'google-maps-react';
+
+function  Header() {
+  return (
+    <header className="Header">
+      <div className="Header-brand"><p>Extremely Okay Lending service</p></div>
+      <div className="Header-nav">
+        <div className="tab"><a href="#">Add</a></div>
+        <div className="tab"><a href="#">Browse</a></div> 
+        <div className="tab"><a href="#">Account</a></div>
+      </div>
+    </header>
+  )
+}
+
+function MainNav() {
+  return(
+    <ul className="Nav">
+      <li>Nav Item 1</li>
+      <li>Nav Item 2</li>
+      <li>Nav Item 3</li>
+    </ul>
+  )
+}
+
+function ItemBrowse() {
+  return (
+    <div className="BrowseItems">
+      <ul>
+        <li>Item 1<br />Address<br />City State Zip<br /></li>
+        <li>Item 2<br />Address<br />City State Zip<br /></li>
+        <li>Item 3<br />Address<br />City State Zip<br /></li>
+        <li>Item 4<br />Address<br />City State Zip<br /></li>
+      </ul>
+    </div>
+  )
+}
+
+function Map() {
+  return (
+    <div className="Map">
+      
+    </div>
+  )
+}
+
+function App() {
+  return (
+    <div className="App">
+      <Header />
+      <MainNav />
+      <ItemBrowse />
+      <Map />
+    </div>
+  );
+}
+
+
 
 ReactDOM.render(
   <React.StrictMode>

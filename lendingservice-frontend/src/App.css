@@ -1,11 +1,45 @@
 .App {
   text-align: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.Header {
+  height: 50px;
+  display:flex;
+  flex-direction: row;
+  flex: 100%;
+  padding: 10px;
+  background-color: gold;
 }
+
+.Header-brand {
+  text-align: left;
+  flex: 50%;
+}
+
+.Header-nav {
+  flex: 50%;
+  text-align: right;
+}
+
+.tab {
+  background-color: gray;
+  display: inline-block;
+  padding: 5px;
+  border-top: 2px solid;
+  border-radius: 5px 5px 0 0;
+}
+
+.tab:hover {
+
+}
+
+.Map {
+  border: 0;
+}
+
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
@@ -16,8 +50,6 @@
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
