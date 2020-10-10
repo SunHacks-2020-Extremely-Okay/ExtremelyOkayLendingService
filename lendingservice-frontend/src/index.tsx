@@ -10,7 +10,7 @@ import './App.css';
 import Header from './Header';
 import ItemBrowse from './ItemBrowse';
 import MainNav from './MainNav';
-import MapDisplay from './MapDisplay';
+//import MapDisplay from './MapDisplay';
 
 
 
@@ -20,7 +20,7 @@ function App() {
       <Header />
       <MainNav />
       <ItemBrowse />
-      <MapDisplay />
+      {/* <MapDisplay /> */}
     </div>
   );
 }
