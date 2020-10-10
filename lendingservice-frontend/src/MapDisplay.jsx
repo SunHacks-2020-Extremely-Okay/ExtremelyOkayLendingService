@@ -7,8 +7,10 @@ export class MapDisplay extends Component {
 
   render() {
     var bounds = new this.props.google.maps.LatLngBounds();
+    var points = new Array();
     for(let i = 0; i < itemsArray.length; i++) {
-      bounds.extend({lat:itemsArray[i].location_x, lng:itemsArray[i].location_y});
+      points.push(itemsArray[i].location_x, itemsArray[i].location_y);
+      //bounds.extend(points[i]);
     }
 
     return (
