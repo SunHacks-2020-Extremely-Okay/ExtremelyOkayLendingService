@@ -123,12 +123,12 @@ fabric.properties
 # Added from React/Typescript
 
 # dependencies
-/node_modules
-/.pnp
-.pnp.js
+/lendingservice-frontend/node_modules
+/lendingservice-frontend/.pnp
+lendingservice-frontend/.pnp.js
 
 # testing
-/coverage
+/lendingservice-frontend/coverage
 
 # production
 /lendingservice-frontend/build
