@@ -5,10 +5,39 @@ function ItemBrowse() {
     return (
       <div className="BrowseItems">
         <ul>
-          <li>Item 1<br />Address<br />City State Zip<br /></li>
-          <li>Item 2<br />Address<br />City State Zip<br /></li>
-          <li>Item 3<br />Address<br />City State Zip<br /></li>
-          <li>Item 4<br />Address<br />City State Zip<br /></li>
+          
+          <li>
+            <div className="Item-location">
+              <p>Item 1<br />Address<br />City State Zip<br /></p>
+            </div>
+            <div className="Item-interact">
+              <button>Reserve</button>
+            </div>
+          </li>
+          <li>
+            <div className="Item-location">
+              <p>Item 1<br />Address<br />City State Zip<br /></p>
+            </div>
+            <div className="Item-interact">
+              <button>Reserve</button>
+            </div>
+          </li>
+          <li>
+            <div className="Item-location">
+              <p>Item 1<br />Address<br />City State Zip<br /></p>
+            </div>
+            <div className="Item-interact">
+              <button>Reserve</button>
+            </div>
+          </li>
+          <li>
+            <div className="Item-location">
+              <p>Item 1<br />Address<br />City State Zip<br /></p>
+            </div>
+            <div className="Item-interact">
+              <button>Reserve</button>
+            </div>
+          </li>
         </ul>
       </div>
     )
