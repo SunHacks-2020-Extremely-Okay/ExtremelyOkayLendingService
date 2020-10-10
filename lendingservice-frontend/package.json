@@ -11,7 +11,7 @@
     "@types/node": "^12.12.67",
     "@types/react": "^16.9.51",
     "@types/react-dom": "^16.9.8",
-    "google-map-react": "^2.1.7",
+    "google-maps-react": "^2.0.6",
     "jss": "^10.4.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",

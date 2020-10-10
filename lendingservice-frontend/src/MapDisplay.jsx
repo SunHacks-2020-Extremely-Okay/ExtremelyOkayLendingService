@@ -1,7 +1,10 @@
 import React, {Component} from 'react';
-import GoogleMapReact from 'google-map-react';
+import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
 
-class MapDisplay extends Component {
+let itemsArray = require('./items.js');
+
+export class MapDisplay extends Component {
+
   static defaultProps = {
     center: {
       lat: 33.4226584,
@@ -13,15 +16,23 @@ class MapDisplay extends Component {
   render() {
     return (
       <div className="Map-display">
-        <GoogleMapReact
-          bootstrapURLKeys={{ key: 'AIzaSyDEMqN5k3XDbLI5RkHpwHd3AJurzsfiiw8' }}
-          defaultCenter={this.props.center}
-          defaultZoom={this.props.zoom}
-        >
-        </GoogleMapReact>
+        <Map 
+          google={this.props.google} 
+          zoom={13}
+          initialCenter={{
+            lat: 33.4226584,
+            lng: -111.9401533
+          }}>
+          {/* Loop over itemsArray and plot all the points */}
+          {itemsArray.map((value, index) => {
+            return 
+          })}
+        </Map>
       </div>
     );
   }
 }
 
-export default MapDisplay;
+export default GoogleApiWrapper({
+  apiKey: ('AIzaSyDEMqN5k3XDbLI5RkHpwHd3AJurzsfiiw8')
+})(MapDisplay)
