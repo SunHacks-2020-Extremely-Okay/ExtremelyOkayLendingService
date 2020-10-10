@@ -5,14 +5,6 @@ let itemsArray = require('./items.js');
 
 export class MapDisplay extends Component {
 
-  static defaultProps = {
-    center: {
-      lat: 33.4226584,
-      lng: -111.9401533
-    },
-    zoom: 13
-  }
-
   render() {
     return (
       <div className="Map-display">
@@ -23,10 +15,12 @@ export class MapDisplay extends Component {
             lat: 33.4226584,
             lng: -111.9401533
           }}>
-          {/* Loop over itemsArray and plot all the points */}
-          {itemsArray.map((value, index) => {
-            return 
-          })}
+            {/* Loop over itemsArray and plot all the points */}
+            {itemsArray.map((value, index) => {
+              return <Marker 
+                name={value.user_id}
+                position={{lat:value.location_x, lng:value.location_x}} />
+            })}
         </Map>
       </div>
     );
