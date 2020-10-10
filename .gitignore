@@ -35,19 +35,20 @@
 # Gradle
 .idea/**/gradle.xml
 .idea/**/libraries
-
+*/.gradle/*
+*/build/*
 # Gradle and Maven with auto-import
 # When using Gradle or Maven with auto-import, you should exclude module files,
 # since they will be recreated, and may cause churn.  Uncomment if using
 # auto-import.
-# .idea/artifacts
-# .idea/compiler.xml
-# .idea/jarRepositories.xml
-# .idea/modules.xml
-# .idea/*.iml
-# .idea/modules
-# *.iml
-# *.ipr
+ .idea/artifacts
+ .idea/compiler.xml
+ .idea/jarRepositories.xml
+ .idea/modules.xml
+ .idea/*.iml
+ .idea/modules
+ *.iml
+ *.ipr
 
 # CMake
 cmake-build-*/
@@ -60,7 +61,7 @@ cmake-build-*/
 
 # IntelliJ
 out/
-
+out/*
 # mpeltonen/sbt-idea plugin
 .idea_modules/
 
