@@ -18,7 +18,7 @@ function App() {
       <Header />
       <MainNav />
       <ItemBrowse />
-      {/* <MapDisplay /> */}
+      <MapDisplay />
     </div>
   );
 }
