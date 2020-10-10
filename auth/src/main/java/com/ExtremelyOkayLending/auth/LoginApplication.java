@@ -1,13 +1,13 @@
-package com.ExtremelyOkayLending.service;
+package com.ExtremelyOkayLending.auth;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class LendingApplication {
+public class LoginApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(LendingApplication.class, args);
+		SpringApplication.run(LoginApplication.class, args);
 	}
 
 }

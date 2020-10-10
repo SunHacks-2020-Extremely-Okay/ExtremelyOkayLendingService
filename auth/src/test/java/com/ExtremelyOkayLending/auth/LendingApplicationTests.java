@@ -1,4 +1,4 @@
-package com.ExtremelyOkayLending.service;
+package com.ExtremelyOkayLending.auth;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
