@@ -1,8 +1,6 @@
-import { stringify } from "querystring";
-
-let itemsArray = [
+var itemsArray = [
     {
-        "item_id": 00000001,
+        "item_id": 5423452345,
         "user_id": "bllarkin",
         "category": 5,
         "location_x": 33.459679,
@@ -13,7 +11,7 @@ let itemsArray = [
         "sku": "ASU12345"
     },
     {
-        "item_id": 00000001,
+        "item_id": 34573456,
         "user_id": "jwdouble",
         "category": 5,
         "location_x": 33.3880863,
