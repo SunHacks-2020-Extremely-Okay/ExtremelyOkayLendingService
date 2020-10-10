@@ -12,11 +12,18 @@
   flex: 100%;
   padding: 10px;
   background-color: #c7ab59;
+  height: auto;
 }
 
 .Header-brand {
   text-align: left;
   flex: 50%;
+  font-size: 2em;
+}
+
+.Header-brand p {
+  color: #302718;
+  text-align: right;
 }
 
 .Header-nav {
@@ -31,6 +38,7 @@
   border-top: 2px solid;
   border-radius: 5px 5px 0 0;
   text-decoration: none;
+  margin-top: 3.5%;
 }
 
 .tab a {
@@ -42,14 +50,22 @@
   border-style: solid;
 }
 
-.tab:hover {
-
+.tab a:hover {
+  color: #699E3C;
 }
 
 .Map-display {
   border: 0;
 }
 
+.Nav {
+  background-color: #DED2A8;
+  color: #302718;
+}
+
+html {
+  background-color: #DED2A8;
+}
 
 
 /* old stuff */
