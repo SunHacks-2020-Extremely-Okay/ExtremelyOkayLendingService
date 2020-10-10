@@ -13,6 +13,7 @@
   padding: 10px;
   background-color: #c7ab59;
   height: auto;
+  border-bottom: #302718 solid .5px;
 }
 
 .Header-brand {
@@ -62,7 +63,6 @@
 
 .BrowseItems {
   flex: 0 1 350px;
-  border: 1px gray solid;
   overflow-y: auto;
 }
 
@@ -74,8 +74,10 @@
 .BrowseItems li {
   display: flex;
   position: relative;
-  border-bottom: grey solid;
+  border-bottom: #302718 solid;
+  border-left: #302718 solid;
   padding: 5px;
+  margin-left: 5px;
 }
 
 .Item-location {
