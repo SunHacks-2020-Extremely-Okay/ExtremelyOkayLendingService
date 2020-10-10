@@ -12,15 +12,13 @@ import ItemBrowse from './ItemBrowse';
 import MainNav from './MainNav';
 import MapDisplay from './MapDisplay.jsx';
 
-
-
 function App() {
   return (
     <div className="App">
       <Header />
       <MainNav />
       <ItemBrowse />
-      <MapDisplay />
+      {/* <MapDisplay /> */}
     </div>
   );
 }
