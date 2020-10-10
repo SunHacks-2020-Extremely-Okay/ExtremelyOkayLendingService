@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import PropTypes from 'prop-types';
 import GoogleMapReact from 'google-map-react';
 
 class MapDisplay extends Component {
