@@ -3,10 +3,12 @@ package com.ExtremelyOkayLending.auth.models;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.google.common.hash.Hashing;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.nio.charset.StandardCharsets;
 
 
 @Getter
@@ -29,7 +31,9 @@ public class User {
     public User(String user_id, String user_name, String pass) {
 
         this.user_id = user_id;
+
         this.user_name = user_name;
+
         this.pass = pass;
     }
 
@@ -50,4 +54,10 @@ public class User {
     public String toString(){
         return "{\"user_id\": \""+this.user_id+"\"}";
     }
+
+    public String getHashedPass(){
+        return Hashing.sha256().hashString(pass, StandardCharsets.UTF_8).toString();
+    }
+
+
 }

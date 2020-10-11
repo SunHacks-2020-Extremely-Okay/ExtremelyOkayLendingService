@@ -20,6 +20,7 @@ dependencies {
 	implementation 'com.amazonaws:aws-java-sdk-dynamodb'
 	compileOnly 'org.projectlombok:lombok:1.18.14'
 	annotationProcessor 'org.projectlombok:lombok:1.18.14'
+	compile group: 'com.google.guava', name: 'guava', version: '14.0'
 	testCompileOnly 'org.projectlombok:lombok:1.18.14'
 	testAnnotationProcessor 'org.projectlombok:lombok:1.18.14'
 	compile group: 'org.apache.logging.log4j', name: 'log4j-api', version: '2.13.3'

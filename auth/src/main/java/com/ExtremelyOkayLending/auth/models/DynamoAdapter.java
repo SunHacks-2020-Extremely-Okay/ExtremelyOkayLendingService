@@ -1,8 +1,10 @@
 package com.ExtremelyOkayLending.auth.models;
 
+import com.google.common.hash.Hashing;
 import org.apache.logging.slf4j.*;
 
 
+import java.nio.charset.StandardCharsets;
 import java.util.UUID;
 import java.net.URI;
 import java.util.HashMap;
@@ -77,9 +79,12 @@ public class DynamoAdapter {
             return false;
         }
         try {
+            String hashedPass = Hashing.sha256()
+                    .hashString(pass, StandardCharsets.UTF_8)
+                    .toString();
             Item item = new Item().withPrimaryKey("user_name", user_name)
                     .withString("user_id", user_id)
-                    .withString("pass", pass);
+                    .withString("pass", hashedPass);
 
             table.putItem(item);
 
