@@ -1,0 +1,154 @@
+.App {
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.Header {
+  height: 50px;
+  display:flex;
+  flex-direction: row;
+  flex: 100%;
+  padding: 10px;
+  background-color: #c7ab59;
+  height: auto;
+  border-bottom: #302718 solid .5px;
+  position: relative;
+}
+
+.Header-brand {
+  text-align: left;
+  flex: 50%;
+  font-size: 2em;
+}
+
+.Header-brand p {
+  color: #302718;
+  text-align: right;
+}
+
+.Header-nav {
+  flex: 50%;
+  text-align: right;
+}
+
+.tab {
+  background-color: gray;
+  display: inline-block;
+  padding: 5px;
+  border-top: 2px solid;
+  border-radius: 5px 5px 0 0;
+  text-decoration: none;
+  margin-top: 3.5%;
+}
+
+.tab a {
+  border-color: #302718;
+  color: #302718;
+  padding-left: 5px;
+  padding-right: 5px;
+  background-color: #DED2A8;
+  border-style: solid;
+}
+
+.tab a:hover {
+  color: #699E3C;
+}
+
+.Nav {
+  background-color: #DED2A8;
+  color: #302718;
+  flex: 0 1 150px;
+}
+
+.BrowseItems {
+  flex: 0 1 350px;
+  overflow-y: auto;
+}
+
+.BrowseItems ul {
+  margin:0;
+  padding:0;
+}
+
+.BrowseItems li {
+  display: flex;
+  position: relative;
+  border-bottom: #302718 solid;
+  border-left: #302718 solid;
+  padding: 5px;
+  margin-left: 5px;
+}
+
+.Item-location {
+  flex: 2 0 50%;
+  text-align: left;
+}
+
+.Item-interact {
+  flex: 1 0 50%;
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}
+
+.Map-display {
+  border: 0;
+  height: 100vh;
+  flex: 5 0;
+}
+
+.Marker-desc {
+  font-size: 18px;
+}
+
+
+html {
+  background-color: #DED2A8;
+}
+
+#mileRange {
+  display: flex;
+  flex-direction: row;
+  float: left;
+}
+
+.leftNav {
+  border-color: #699E3C;
+  border-style: solid;
+  border-width: 1px;
+  align-self: center;
+  padding: 10px;
+  color: #302718;
+}
+
+#equipmentSelector {
+  border-color: #302718;
+}
+
+
+/* old stuff */
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
