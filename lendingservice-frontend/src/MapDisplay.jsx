@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
+import { on } from 'process';
+import { render } from '@testing-library/react';
 
 let itemsArray = require('./items.js');
 
@@ -19,14 +21,13 @@ export class MapDisplay extends Component {
 
   render() {
     var bounds = new this.props.google.maps.LatLngBounds();
-    var points = new Array();
+
     for (let i = 0; i < itemsArray.length; i++) {
-      if(itemsArray[i].available == true) {
-        points.push({ lat: itemsArray[i].location_x, lng: itemsArray[i].location_y });
-        bounds.extend(points[i]);
+      if(itemsArray[i].available === true) {
+        let points = { lat: itemsArray[i].location_x, lng: itemsArray[i].location_y };
+        bounds.extend(points);
       }
     }
-
     return (
       <div className="Map-display">
         <Map

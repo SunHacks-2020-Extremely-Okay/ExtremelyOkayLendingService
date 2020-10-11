@@ -22,6 +22,18 @@ var itemsArray = [
         "available": false,
         "return_date": null,
         "sku": "ASU12345"
+    },
+    {
+        "item_id": 34583456,
+        "user_id": "jlabrec",
+        "description": "Raspberry Pi",
+        "category": 5,
+        "location_x": 60.3870863,
+        "location_y": -111.8722263,
+        "verified": false,
+        "available": true,
+        "return_date": null,
+        "sku": "ASU12345"
     }
 ]
 
