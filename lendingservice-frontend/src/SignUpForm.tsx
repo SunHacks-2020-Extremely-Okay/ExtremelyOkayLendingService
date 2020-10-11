@@ -6,7 +6,7 @@ function SignUpForm() {
             <form method="post">
                 <label className="loginLabel">
                     Email:
-                    <input type="text" id="email" />
+                    <input type="email" id="email" />
                 </label>
                 <label className="loginLabel">
                     Password:
