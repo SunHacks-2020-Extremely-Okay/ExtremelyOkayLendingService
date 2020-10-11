@@ -26,6 +26,10 @@ function Header() {
 
     }
 
+    function submitAddModal() {
+        closeAddModal();
+    }
+
     function closeAddModal() {
         setIsOpen(false);
     }
@@ -47,9 +51,14 @@ function Header() {
         style={customModalStyles}
         contentLabel="Add Device To Database"
         >
-            <button onClick={closeAddModal}>Close</button>
             <form>
                 <input />
+                <br />
+                <div >
+                    <button onClick={submitAddModal}>Submit</button>
+                    <button onClick={closeAddModal}>Close</button>
+                </div>
+                
             </form>
         </Modal>
         </header>
