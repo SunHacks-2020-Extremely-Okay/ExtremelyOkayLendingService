@@ -5,7 +5,8 @@ let itemsArray = require('./items.js');
 
 const mapStyle = {
   width: '75%',
-  height: '90%'
+  height: '90%',
+  borderLeft: '1px solid #302718'
 }
 
 export class MapDisplay extends Component {
