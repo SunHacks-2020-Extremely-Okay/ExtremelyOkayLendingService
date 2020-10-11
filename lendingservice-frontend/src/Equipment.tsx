@@ -2,7 +2,7 @@ import React from 'react';
 
 function Equipment() {
     return (
-        <label>Type:
+        <label>Type:&nbsp;
             <select id="description">
                 <option value="wifi">Wifi</option>
                 <option value="winlaptop">Windows Laptop</option>

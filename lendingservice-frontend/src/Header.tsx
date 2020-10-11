@@ -5,7 +5,7 @@ import GeoLocator from './GeoLocator';
 
 const customModalStyles = {
     content : {
-        backgroundColor: '#c7ab59',
+        backgroundColor: '#DED2A8',
         borderRadius: '15px',
         top: '50%',
         left: '50%',
@@ -56,22 +56,16 @@ function Header() {
         contentLabel="Add Device To Database"
         >
             <form action="" method="POST">
-                <label>UserID of Lender:
+                <label>UserID of Lender:&nbsp;
                     <input type="text" id="user_id" />
                 </label>
                 <br />
                 <label>Sku:&nbsp;
                   <input type="text" id="sku"/>
                 </label>
-                
                 <div className="addEquipment">
-                  <GeoLocator className="addEquipment" />
                   <Equipment />
-                  <br />
-                  <label>Sku:&nbsp;
-                    <input type="text" id="sku"/>
-                  </label>
-                
+                  <GeoLocator className="addEquipment" />
                   <br />
                   <div >
                       <button className="sign" onClick={submitAddModal}>Submit</button>
