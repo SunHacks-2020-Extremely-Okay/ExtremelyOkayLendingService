@@ -2,7 +2,16 @@ import React from 'react';
 
 let itemsArray = require('./items.js');
 
+function getData() {
+  fetch('http://52.14.231.136:8080/items')
+.then(response => response.json())
+.then(data => itemsArray = data)
+.then(() => console.log(itemsArray));
+}
+
 function ItemBrowse() {
+    getData();
+
     return (
       <div className="BrowseItems">
         <ul>
@@ -11,9 +20,9 @@ function ItemBrowse() {
               return <li key={index}>
               <div className="Item-location">
                 <p>{value.description}<br />
-                Item ID={value.item_id}<br />
-                Latitude={value.location_x}<br />
-                Latitude={value.location_y}</p>
+                Item ID={value.itemId}<br />
+                Latitude={value.locationX}<br />
+                Latitude={value.locationY}</p>
               </div>
               <div className="Item-interact">
                 <button>Reserve</button>
