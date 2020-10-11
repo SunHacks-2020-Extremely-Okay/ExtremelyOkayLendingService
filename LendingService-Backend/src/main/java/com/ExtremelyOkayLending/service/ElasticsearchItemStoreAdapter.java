@@ -36,9 +36,8 @@ public class ElasticsearchItemStoreAdapter {
     private static final String SERVICE_NAME = "es";
     private static final String REGION = "us-east-2";
     private static final String ES_ENDPOINT =
-            "https://search-es-item-store-5fw4japa2ykfo4owbyf4pjkvke.us-east-2.es.amazonaws.com/";
+            "http://search-es-item-store-5fw4japa2ykfo4owbyf4pjkvke.us-east-2.es.amazonaws.com";
     private static final String ES_INDEX = "items-index";
-    private static final String TYPE = "_doc";
 
     private static final String ITEM_ID = "item_id";
     private static final String USER_ID = "user_id";
@@ -132,7 +131,10 @@ public class ElasticsearchItemStoreAdapter {
         document.put(SKU, lendorItem.getSku());
 
         // Form the indexing request, send it, and print the response
-        final IndexRequest indexRequest = new IndexRequest(ES_INDEX, TYPE, lendorItem.getUserId()).source(document);
+        final IndexRequest indexRequest = new IndexRequest(ES_INDEX);
+        indexRequest.id(lendorItem.getUserId());
+        indexRequest.source(document);
+
         try {
             return restHighLevelClient.index(indexRequest, RequestOptions.DEFAULT);
         } catch (Exception e) {
@@ -148,7 +150,7 @@ public class ElasticsearchItemStoreAdapter {
         final Map<String, Object> document = new HashMap<>();
         document.put(VERIFIED, verified);
 
-        UpdateRequest updateRequest = new UpdateRequest(ES_INDEX, TYPE, itemId.toString()).doc(document);
+        UpdateRequest updateRequest = new UpdateRequest(ES_INDEX, itemId.toString()).doc(document);
 
         try {
             return restHighLevelClient.update(updateRequest, RequestOptions.DEFAULT);
@@ -175,7 +177,7 @@ public class ElasticsearchItemStoreAdapter {
             }
         }
 
-        UpdateRequest updateRequest = new UpdateRequest(ES_INDEX, TYPE, itemId.toString()).doc(document);
+        UpdateRequest updateRequest = new UpdateRequest(ES_INDEX, itemId.toString()).doc(document);
 
         try {
             return restHighLevelClient.update(updateRequest, RequestOptions.DEFAULT);
