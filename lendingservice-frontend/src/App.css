@@ -147,6 +147,7 @@ html {
 
 .sign:hover {
   background: #c7ab59;
+  cursor: grab;
 }
 
 /* old stuff */
