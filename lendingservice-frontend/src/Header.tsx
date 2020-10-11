@@ -1,6 +1,6 @@
 import React from 'react';
 
-function  Header() {
+function Header() {
     return (
       <header className="Header">
         <div className="Header-brand"><p>Extremely Okay Lending service</p></div>

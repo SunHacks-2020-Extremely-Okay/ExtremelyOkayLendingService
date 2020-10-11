@@ -1,7 +1,5 @@
 import React, {Component} from 'react';
 import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
-import { on } from 'process';
-import { render } from '@testing-library/react';
 
 let itemsArray = require('./items.js');
 
@@ -40,11 +38,13 @@ export class MapDisplay extends Component {
           }}>
           {/* Loop over itemsArray and plot all the points */}
           {itemsArray.map((value, index) => {
-            if (value.available == true) {
+            if (value.available === true) {
               return <Marker
                 name={value.description}
                 position={{ lat: value.location_x, lng: value.location_y }}
                 onClick={this.onMarkerClick} />
+            } else {
+              return null;
             }
           })}
           <InfoWindow
