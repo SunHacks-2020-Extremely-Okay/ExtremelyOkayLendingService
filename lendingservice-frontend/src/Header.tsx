@@ -5,6 +5,8 @@ import GeoLocator from './GeoLocator';
 
 const customModalStyles = {
     content : {
+        backgroundColor: '#DED2A8',
+        borderRadius: '15px',
         top: '50%',
         left: '50%',
         right: 'auto',
