@@ -43,7 +43,7 @@ public class DynamoAdapter {
                 .build();
         db = new DynamoDB(dynamoClient);
 
-        table = db.getTable("users");
+        table = db.getTable("user");
 
     }
 
