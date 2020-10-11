@@ -5,10 +5,10 @@ import com.amazonaws.auth.AWSCredentialsProvider;
 import com.amazonaws.auth.DefaultAWSCredentialsProviderChain;
 import com.amazonaws.http.AWSRequestSigningApacheInterceptor;
 
-import example.models.LendorItem;
-import example.models.SearchItemRequest;
-import example.models.UpdateAvailabilityStatusRequest;
-import example.models.UpdateVerificationStatusRequest;
+import com.ExtremelyOkayLending.models.LendorItem;
+import com.ExtremelyOkayLending.models.SearchItemRequest;
+import com.ExtremelyOkayLending.models.UpdateAvailabilityStatusRequest;
+import com.ExtremelyOkayLending.models.UpdateVerificationStatusRequest;
 import lombok.NoArgsConstructor;
 
 import org.apache.http.HttpHost;

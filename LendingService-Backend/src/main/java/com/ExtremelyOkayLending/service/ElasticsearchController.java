@@ -5,12 +5,17 @@ import java.util.ArrayList;
 import org.elasticsearch.action.index.IndexResponse;
 import org.elasticsearch.action.search.SearchResponse;
 import org.elasticsearch.action.update.UpdateResponse;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
-import example.mapper.ElasticsearchResponseToItemListMapper;
-import example.models.LendorItem;
-import example.models.SearchItemRequest;
-import example.models.UpdateAvailabilityStatusRequest;
-import example.models.UpdateVerificationStatusRequest;
+import com.ExtremelyOkayLending.mapper.ElasticsearchResponseToItemListMapper;
+import com.ExtremelyOkayLending.models.LendorItem;
+import com.ExtremelyOkayLending.models.SearchItemRequest;
+import com.ExtremelyOkayLending.models.UpdateAvailabilityStatusRequest;
+import com.ExtremelyOkayLending.models.UpdateVerificationStatusRequest;
 
 @RestController
 public class ElasticsearchController {
@@ -43,7 +48,7 @@ public class ElasticsearchController {
         ElasticsearchItemStoreAdapter esAdapter = new ElasticsearchItemStoreAdapter();
         SearchResponse searchResponse = esAdapter.searchItemsIndex(searchItemRequest);
 
-        if (searchResponse != null && searchResponse.getHits().totalHits > 0L) {
+        if (searchResponse != null && searchResponse.getHits().getTotalHits().value > 0L) {
             ElasticsearchResponseToItemListMapper mapper = new ElasticsearchResponseToItemListMapper();
 
             return mapper.map(searchResponse);
