@@ -10,7 +10,7 @@ function SignUpForm() {
                 </label>
                 <label className="loginLabel">
                     Password:
-                    <input type="text" id="password" />
+                    <input type="password" id="password" />
                 </label>
                 <a className="sign">
                     Sign In
