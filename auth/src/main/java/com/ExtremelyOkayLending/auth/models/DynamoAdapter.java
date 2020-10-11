@@ -56,7 +56,7 @@ public class DynamoAdapter {
             if (item == null) {
                 return null;
             }
-            User ret = new User((Long) item.get("user_id"), (String) item.get("user_name"), (String) item.get("pass"));
+            User ret = new User(Long.parseLong((String)item.get("user_id")), (String) item.get("user_name"), (String) item.get("pass"));
 
             return ret;
         } catch(Exception e) {
