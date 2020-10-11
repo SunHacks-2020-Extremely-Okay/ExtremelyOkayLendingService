@@ -60,14 +60,15 @@ function Header() {
                 <div className="addEquipment">
                   <GeoLocator className="addEquipment" />
                   <Equipment />
+                  <br />
                   <label>Sku:&nbsp;
                     <input type="text" id="sku"/>
                   </label>
                 
                   <br />
                   <div >
-                      <button onClick={submitAddModal}>Submit</button>
-                      <button onClick={closeAddModal}>Close</button>
+                      <button className="sign" onClick={submitAddModal}>Submit</button>
+                      <button className="sign" onClick={closeAddModal}>Close</button>
                   </div>
                 </div>
                 
