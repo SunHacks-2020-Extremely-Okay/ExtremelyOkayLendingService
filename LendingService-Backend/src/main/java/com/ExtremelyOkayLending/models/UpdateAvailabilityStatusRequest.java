@@ -8,7 +8,7 @@ import lombok.NonNull;
 @AllArgsConstructor
 public class UpdateAvailabilityStatusRequest {
     @NonNull
-    private final Long itemId;
+    private final Integer itemId;
     @NonNull
     private final Boolean available;
     private final Long returnDate;

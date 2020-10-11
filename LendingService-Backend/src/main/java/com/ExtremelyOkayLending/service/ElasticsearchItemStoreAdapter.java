@@ -58,7 +58,7 @@ public class ElasticsearchItemStoreAdapter {
     private static final RestHighLevelClient restHighLevelClient = provideElasticsearchClient();
 
     public SearchResponse searchItemsIndex(final SearchItemRequest searchItemRequest) {
-        final Long itemId = searchItemRequest.getItemId();
+        final Integer itemId = searchItemRequest.getItemId();
         final String userId = searchItemRequest.getUserId();
         final Integer category = searchItemRequest.getCategory();
         final Integer proximity = searchItemRequest.getProximity();
@@ -118,7 +118,7 @@ public class ElasticsearchItemStoreAdapter {
         Random random = new Random();
         // Create the document as a hash map
         Map<String, Object> document = new HashMap<>();
-        long itemId = Math.abs(random.nextLong());
+        int itemId = Math.abs(random.nextInt());
 
         /* This is not a perfect solution since we could have overlapping numbers, but for now it's fine */
         document.put(ITEM_ID, itemId);
@@ -133,7 +133,7 @@ public class ElasticsearchItemStoreAdapter {
 
         // Form the indexing request, send it, and print the response
         final IndexRequest indexRequest = new IndexRequest(ES_INDEX);
-        indexRequest.id(Long.toString(itemId));
+        indexRequest.id(Integer.toString(itemId));
         indexRequest.source(document);
 
         try {
@@ -145,7 +145,7 @@ public class ElasticsearchItemStoreAdapter {
     }
 
     public UpdateResponse updateVerificationStatus(UpdateVerificationStatusRequest updateVerificationStatusRequest) {
-        final Long itemId = updateVerificationStatusRequest.getItemId();
+        final Integer itemId = updateVerificationStatusRequest.getItemId();
         final Boolean verified = updateVerificationStatusRequest.getVerified();
 
         final Map<String, Object> document = new HashMap<>();
@@ -162,7 +162,7 @@ public class ElasticsearchItemStoreAdapter {
     }
 
     public UpdateResponse updateAvailabilityStatus(UpdateAvailabilityStatusRequest updateAvailabilityStatusRequest) {
-        final Long itemId = updateAvailabilityStatusRequest.getItemId();
+        final Integer itemId = updateAvailabilityStatusRequest.getItemId();
         final Boolean available = updateAvailabilityStatusRequest.getAvailable();
         final Long returnDateTimeStamp = updateAvailabilityStatusRequest.getReturnDate();
 

@@ -7,7 +7,7 @@ import lombok.Getter;
 @Getter
 @AllArgsConstructor
 public class SearchItemRequest {
-    private final Long itemId;
+    private final Integer itemId;
     private final String userId;
     private final Integer category;
     private final Integer proximity;

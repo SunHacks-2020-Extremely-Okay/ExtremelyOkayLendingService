@@ -29,7 +29,7 @@ public class ElasticsearchResponseToItemListMapper {
         for (SearchHit searchHit : searchHits) {
             final Map<String, Object> documentMap = searchHit.getSourceAsMap();
 
-            final Long itemId = Long.valueOf((Integer) documentMap.get(ITEM_ID));
+            final Integer itemId = (Integer) documentMap.get(ITEM_ID);
             final String userId = (String) documentMap.get(USER_ID);
             final Integer category = (Integer) documentMap.get(CATEGORY);
             final Double locationX = (Double) documentMap.get(LOCATION_X);

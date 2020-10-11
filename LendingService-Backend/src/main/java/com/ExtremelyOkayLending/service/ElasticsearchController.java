@@ -23,7 +23,7 @@ public class ElasticsearchController {
     @CrossOrigin
     @GetMapping("/items")
     public ArrayList<LendorItem> getItems(
-            @RequestParam(required = false) Long itemId,
+            @RequestParam(required = false) Integer itemId,
             @RequestParam(required = false) String userId,
             @RequestParam(required = false) Integer category,
             @RequestParam(required = false, defaultValue = "5") Integer proximity,

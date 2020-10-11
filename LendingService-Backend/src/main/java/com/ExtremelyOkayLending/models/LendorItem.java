@@ -7,7 +7,7 @@ import lombok.NonNull;
 @Getter
 @AllArgsConstructor
 public class LendorItem {
-    private final Long itemId;
+    private final Integer itemId;
     @NonNull
     private final String userId;
     @NonNull
