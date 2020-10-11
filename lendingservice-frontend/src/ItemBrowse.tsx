@@ -1,16 +1,21 @@
-import React from 'react';
+import React, {useState} from 'react';
 
 let itemsArray = require('./items.js');
 
 function getData() {
-  fetch('http://52.14.231.136:8080/items')
-.then(response => response.json())
-.then(data => itemsArray = data)
-.then(() => console.log(itemsArray));
+    fetch('http://52.14.231.136:8080/items')
+        .then(response => response.json())
+        .then(data => itemsArray = data)
+        .then(() => console.log(itemsArray));
 }
 
 function ItemBrowse() {
     getData();
+
+    let [,setState]=useState();
+    function handleUpdate() {
+        setState({});
+    }
 
     return (
       <div className="BrowseItems">
@@ -19,7 +24,7 @@ function ItemBrowse() {
             if(value.available === true) {
               return <li key={index}>
               <div className="Item-location">
-                <p>{value.description}<br />
+                <p>{value.sku}<br />
                 Item ID={value.itemId}<br />
                 Latitude={value.locationX}<br />
                 Latitude={value.locationY}</p>
@@ -32,6 +37,7 @@ function ItemBrowse() {
             return null;
           }
           })}
+          <li className="sign" onClick={handleUpdate}> Get Items </li>
         </ul>
       </div>
     )
