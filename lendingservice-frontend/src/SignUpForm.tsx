@@ -1,5 +1,13 @@
 import React from 'react';
 
+function signIn() {
+
+}
+
+function signUp() {
+
+}
+
 function SignUpForm() {
     return (
         <div>
@@ -12,10 +20,10 @@ function SignUpForm() {
                     Password:
                     <input type="password" id="password" />
                 </label>
-                <a className="sign">
+                <a className="sign" onClick={signIn}>
                     Sign In
                 </a>
-                <a className="sign">
+                <a className="sign" onClick={signUp}>
                     Sign Up
                 </a>
             </form>

@@ -126,9 +126,16 @@ html {
 
 #equipmentSelector {
   border-color: #302718;
+  margin-left: 5px;
+  width: auto;
+  color: #302718;
 }
 
 .loginLabel {
+  color: #302718;
+}
+
+label {
   color: #302718;
 }
 

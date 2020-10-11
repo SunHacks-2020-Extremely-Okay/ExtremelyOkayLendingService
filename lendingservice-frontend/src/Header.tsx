@@ -1,5 +1,7 @@
 import React from 'react';
 import Modal from 'react-modal';
+import Equipment from './Equipment';
+import GeoLocator from './GeoLocator';
 
 const customModalStyles = {
     content : {
@@ -12,11 +14,11 @@ const customModalStyles = {
     }
 }
 
-
 Modal.setAppElement('#root');
 
 function Header() {
     const [modalIsOpen,setIsOpen] = React.useState(false);
+    let geoEnabled = false;
 
     function openAddModal() {
         setIsOpen(true);
@@ -52,8 +54,13 @@ function Header() {
         contentLabel="Add Device To Database"
         >
             <form>
-                <input />
+                <label>Sku:&nbsp;
+                  <input type="text" id="sku"/>
+                </label>
+                
                 <br />
+                <GeoLocator />
+                <Equipment />
                 <div >
                     <button onClick={submitAddModal}>Submit</button>
                     <button onClick={closeAddModal}>Close</button>
