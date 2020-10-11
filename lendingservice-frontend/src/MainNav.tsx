@@ -29,9 +29,9 @@ function MainNav() {
         <li className="leftNav">      
           <SignUpForm />
         </li>
-
-
       </ul>
+
+
     )
   }
 
