@@ -21,8 +21,10 @@ export class MapDisplay extends Component {
     var bounds = new this.props.google.maps.LatLngBounds();
     var points = new Array();
     for (let i = 0; i < itemsArray.length; i++) {
-      points.push({ lat: itemsArray[i].location_x, lng: itemsArray[i].location_y });
-      bounds.extend(points[i]);
+      if(itemsArray[i].available == true) {
+        points.push({ lat: itemsArray[i].location_x, lng: itemsArray[i].location_y });
+        bounds.extend(points[i]);
+      }
     }
 
     return (
@@ -37,16 +39,18 @@ export class MapDisplay extends Component {
           }}>
           {/* Loop over itemsArray and plot all the points */}
           {itemsArray.map((value, index) => {
-            return <Marker
-              name={value.user_id}
-              position={{ lat: value.location_x, lng: value.location_y }}
-              onClick={this.onMarkerClick} />
+            if (value.available == true) {
+              return <Marker
+                name={value.description}
+                position={{ lat: value.location_x, lng: value.location_y }}
+                onClick={this.onMarkerClick} />
+            }
           })}
           <InfoWindow
             marker={this.state.activeMarker}
             visible={this.state.showingInfoWindow}>
-            <div>
-              <h1>{this.state.selectedPlace.name}</h1>
+            <div className="Marker-desc">
+              <p>{this.state.selectedPlace.name}</p>
             </div>
           </InfoWindow>
         </Map>
