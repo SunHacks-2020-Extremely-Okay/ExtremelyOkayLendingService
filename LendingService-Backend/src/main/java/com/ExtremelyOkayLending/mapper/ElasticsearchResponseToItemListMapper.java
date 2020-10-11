@@ -29,14 +29,14 @@ public class ElasticsearchResponseToItemListMapper {
         for (SearchHit searchHit : searchHits) {
             final Map<String, Object> documentMap = searchHit.getSourceAsMap();
 
-            final Long itemId = (Long) documentMap.get(ITEM_ID);
+            final Long itemId = Long.valueOf((Integer) documentMap.get(ITEM_ID));
             final String userId = (String) documentMap.get(USER_ID);
             final Integer category = (Integer) documentMap.get(CATEGORY);
             final Double locationX = (Double) documentMap.get(LOCATION_X);
             final Double locationY = (Double) documentMap.get(LOCATION_Y);
             final Boolean verified = (Boolean) documentMap.get(VERIFIED);
             final Boolean available = (Boolean) documentMap.get(AVAILABLE);
-            final Long returnDate = (Long) documentMap.get(RETURN_DATE);
+            final Long returnDate = Long.valueOf((Integer) documentMap.get(RETURN_DATE));
             final String sku = (String) documentMap.get(SKU);
 
             LendorItem item = new LendorItem(

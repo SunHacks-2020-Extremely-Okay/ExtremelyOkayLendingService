@@ -36,7 +36,7 @@ public class ElasticsearchItemStoreAdapter {
     private static final String SERVICE_NAME = "es";
     private static final String REGION = "us-east-2";
     private static final String ES_ENDPOINT =
-            "http://search-es-item-store-5fw4japa2ykfo4owbyf4pjkvke.us-east-2.es.amazonaws.com";
+            "https://search-es-item-store-2-2qxcbj74s2d52rp6mggb6psxyu.us-east-2.es.amazonaws.com";
     private static final String ES_INDEX = "items-index";
 
     private static final String ITEM_ID = "item_id";

@@ -21,16 +21,16 @@ import com.ExtremelyOkayLending.models.UpdateVerificationStatusRequest;
 public class ElasticsearchController {
     @GetMapping("/items")
     public ArrayList<LendorItem> getItems(
-            @RequestParam(required = false, value = "item_id") Long itemId,
-            @RequestParam(required = false, value = "user_id") String userId,
-            @RequestParam(required = false, value = "category") Integer category,
-            @RequestParam(required = false, value = "proximity", defaultValue = "5") Integer proximity,
-            @RequestParam(required = false, value = "location_x", defaultValue = "-111.9401533") Double locationX,
-            @RequestParam(required = false, value = "location_y", defaultValue = "33.4226584") Double locationY,
-            @RequestParam(required = false, value = "verified") Boolean verified,
-            @RequestParam(required = false, value = "available") Boolean available,
-            @RequestParam(required = false, value = "return_date") Long returnDate,
-            @RequestParam(required = false, value = "sku") String sku
+            @RequestParam(required = false) Long itemId,
+            @RequestParam(required = false) String userId,
+            @RequestParam(required = false) Integer category,
+            @RequestParam(required = false, defaultValue = "5") Integer proximity,
+            @RequestParam(required = false, defaultValue = "-111.9401533") Double locationX,
+            @RequestParam(required = false, defaultValue = "33.4226584") Double locationY,
+            @RequestParam(required = false) Boolean verified,
+            @RequestParam(required = false) Boolean available,
+            @RequestParam(required = false) Long returnDate,
+            @RequestParam(required = false) String sku
     ) {
         SearchItemRequest searchItemRequest = new SearchItemRequest(
                 itemId,
