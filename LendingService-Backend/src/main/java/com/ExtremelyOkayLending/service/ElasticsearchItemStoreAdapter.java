@@ -1,8 +1,15 @@
 package com.ExtremelyOkayLending.service;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Random;
+import com.amazonaws.auth.AWS4Signer;
+import com.amazonaws.auth.AWSCredentialsProvider;
+import com.amazonaws.auth.DefaultAWSCredentialsProviderChain;
+import com.amazonaws.http.AWSRequestSigningApacheInterceptor;
+
+import example.models.LendorItem;
+import example.models.SearchItemRequest;
+import example.models.UpdateAvailabilityStatusRequest;
+import example.models.UpdateVerificationStatusRequest;
+import lombok.NoArgsConstructor;
 
 import org.apache.http.HttpHost;
 import org.apache.http.HttpRequestInterceptor;
@@ -19,16 +26,9 @@ import org.elasticsearch.index.query.BoolQueryBuilder;
 import org.elasticsearch.index.query.QueryBuilders;
 import org.elasticsearch.search.builder.SearchSourceBuilder;
 
-import com.amazonaws.auth.AWS4Signer;
-import com.amazonaws.auth.AWSCredentialsProvider;
-import com.amazonaws.auth.DefaultAWSCredentialsProviderChain;
-import com.amazonaws.http.AWSRequestSigningApacheInterceptor;
-
-import example.models.LendorItem;
-import example.models.SearchItemRequest;
-import example.models.UpdateAvailabilityStatusRequest;
-import example.models.UpdateVerificationStatusRequest;
-import lombok.NoArgsConstructor;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Random;
 
 @NoArgsConstructor
 public class ElasticsearchItemStoreAdapter {
@@ -50,6 +50,10 @@ public class ElasticsearchItemStoreAdapter {
     private static final String RETURN_DATE = "return_date";
     private static final String SKU = "sku";
 
+    private static final double EARTH_RADIUS = 3960.0;
+    private static final double DEGREES_TO_RADIANS = 3.1415 / 180.0;
+    private static final double RADIANS_TO_DEGREES = 180.0 / 3.1415;
+
     private static final AWSCredentialsProvider CREDENTIALS_PROVIDER = new DefaultAWSCredentialsProviderChain();
 
     private static final RestHighLevelClient restHighLevelClient = provideElasticsearchClient();
@@ -58,6 +62,7 @@ public class ElasticsearchItemStoreAdapter {
         final Long itemId = searchItemRequest.getItemId();
         final String userId = searchItemRequest.getUserId();
         final Integer category = searchItemRequest.getCategory();
+        final Integer proximity = searchItemRequest.getProximity();
         final Double locationX = searchItemRequest.getLocationX();
         final Double locationY = searchItemRequest.getLocationY();
         final Boolean verified = searchItemRequest.getVerified();
@@ -75,11 +80,15 @@ public class ElasticsearchItemStoreAdapter {
         if (category != null) {
             boolQueryBuilder.must(QueryBuilders.matchQuery(CATEGORY, category));
         }
-        if (locationX != null) {
-            boolQueryBuilder.must(QueryBuilders.matchQuery(LOCATION_X, locationX));
-        }
-        if (locationY != null) {
-            boolQueryBuilder.must(QueryBuilders.matchQuery(LOCATION_Y, locationY));
+        if (proximity != null && locationX != null && locationY != null) {
+            double x = convertMilesToLongitudeDegrees(locationY, proximity);
+            double y = convertMilesToLatitudeDegrees(proximity);
+
+            boolQueryBuilder.must(QueryBuilders.rangeQuery(LOCATION_X).gt(locationX - x));
+            boolQueryBuilder.must(QueryBuilders.rangeQuery(LOCATION_X).lt(locationX + x));
+
+            boolQueryBuilder.must(QueryBuilders.rangeQuery(LOCATION_Y).gt(locationY - y));
+            boolQueryBuilder.must(QueryBuilders.rangeQuery(LOCATION_Y).lt(locationY + y));
         }
         if (verified != null) {
             boolQueryBuilder.must(QueryBuilders.matchQuery(VERIFIED, verified));
@@ -186,5 +195,15 @@ public class ElasticsearchItemStoreAdapter {
         return new RestHighLevelClient(RestClient.builder(HttpHost.create(ES_ENDPOINT))
                                                  .setHttpClientConfigCallback(hacb -> hacb.addInterceptorLast(
                                                          interceptor)));
+    }
+
+    private double convertMilesToLongitudeDegrees(double latitude,
+            int miles) {
+        double radians = EARTH_RADIUS * Math.cos(latitude * DEGREES_TO_RADIANS);
+        return (miles / radians) * RADIANS_TO_DEGREES;
+    }
+
+    private double convertMilesToLatitudeDegrees(int miles) {
+        return (miles / EARTH_RADIUS) * RADIANS_TO_DEGREES;
     }
 }
