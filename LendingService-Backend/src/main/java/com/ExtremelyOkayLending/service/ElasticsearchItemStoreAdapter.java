@@ -118,9 +118,10 @@ public class ElasticsearchItemStoreAdapter {
         Random random = new Random();
         // Create the document as a hash map
         Map<String, Object> document = new HashMap<>();
+        long itemId = Math.abs(random.nextLong());
 
         /* This is not a perfect solution since we could have overlapping numbers, but for now it's fine */
-        document.put(ITEM_ID, random.nextLong());
+        document.put(ITEM_ID, itemId);
         document.put(USER_ID, lendorItem.getUserId());
         document.put(CATEGORY, lendorItem.getCategory());
         document.put(LOCATION_X, lendorItem.getLocationX());
@@ -132,7 +133,7 @@ public class ElasticsearchItemStoreAdapter {
 
         // Form the indexing request, send it, and print the response
         final IndexRequest indexRequest = new IndexRequest(ES_INDEX);
-        indexRequest.id(lendorItem.getUserId());
+        indexRequest.id(Long.toString(itemId));
         indexRequest.source(document);
 
         try {
