@@ -7,7 +7,8 @@ function ItemBrowse() {
       <div className="BrowseItems">
         <ul>
           {itemsArray.map((value: any, index: any) => {
-            return <li key={index}>
+            if(value.available === true) {
+              return <li key={index}>
               <div className="Item-location">
                 <p>{value.description}<br />
                 Item ID={value.item_id}<br />
@@ -18,6 +19,9 @@ function ItemBrowse() {
                 <button>Reserve</button>
               </div>
             </li>
+          } else {
+            return null;
+          }
           })}
         </ul>
       </div>
