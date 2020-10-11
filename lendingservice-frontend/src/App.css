@@ -19,7 +19,8 @@
 
 .Header-brand {
   text-align: left;
-  flex: 50%;
+  align-content: flex-start;
+  flex: 0 1 50%;
   font-size: 2em;
 }
 
@@ -30,7 +31,11 @@
 
 .Header-nav {
   flex: 50%;
+  font-size: 1.5em;
   text-align: right;
+  position: absolute;
+  bottom: 0;
+  right: 0;
 }
 
 .tab {
