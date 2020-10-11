@@ -1,5 +1,7 @@
 package com.ExtremelyOkayLending.auth.models;
 
+import org.apache.logging.slf4j.*;
+
 
 import java.util.UUID;
 import java.net.URI;
@@ -29,6 +31,8 @@ import org.springframework.context.annotation.Bean;
 
 
 public class DynamoAdapter {
+
+    final Logger logger = LoggerFactory.getLogger(DynamoAdapter.class);
     final AmazonDynamoDB dynamoClient;
     final DynamoDB db;
     final Table table;
@@ -47,13 +51,18 @@ public class DynamoAdapter {
 
     public User getUser(String user_name) {
 
-            Item item = table.getItem("user_name",user_name);
-            if( item == null) {
+        try {
+            Item item = table.getItem("user_name", user_name);
+            if (item == null) {
                 return null;
             }
-            User ret = new User((Long)item.get("user_id"),(String)item.get("user_name"), (String)item.get("pass"));
+            User ret = new User((Long) item.get("user_id"), (String) item.get("user_name"), (String) item.get("pass"));
 
             return ret;
+        } catch(Exception e) {
+            logger.error(e.getMessage());
+            return null;
+        }
     }
 
 

@@ -22,6 +22,8 @@ dependencies {
 	annotationProcessor 'org.projectlombok:lombok:1.18.14'
 	testCompileOnly 'org.projectlombok:lombok:1.18.14'
 	testAnnotationProcessor 'org.projectlombok:lombok:1.18.14'
+	compile group: 'org.apache.logging.log4j', name: 'log4j-api', version: '2.13.3'
+	compile group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.13.3'
 	implementation 'org.springframework.boot:spring-boot-starter-jersey'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
