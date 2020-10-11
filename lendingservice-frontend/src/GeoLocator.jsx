@@ -10,10 +10,10 @@ class GeoLocator extends React.Component {
         ) : this.props.coords ? (
             <div>
                 <label>Latitude:
-                    <input type="text" value={this.props.coords.latitude} />
+                    <input type="text" id="location_x" value={this.props.coords.latitude} />
                 </label><br />
                 <label>Longitude:
-                    <input type="text" value={this.props.coords.longitude} />
+                    <input type="text" id="location_y" value={this.props.coords.longitude} />
                 </label>
             </div>
         ) : (
