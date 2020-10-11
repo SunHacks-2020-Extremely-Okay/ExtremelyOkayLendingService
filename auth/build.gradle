@@ -1,0 +1,38 @@
+plugins {
+	id 'org.springframework.boot' version '2.3.4.RELEASE'
+	id 'io.spring.dependency-management' version '1.0.10.RELEASE'
+	id 'java'
+}
+
+group = 'com.ExtremelyOkayLending'
+version = '0.0.1-SNAPSHOT'
+//sourceCompatibility = '11'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	//implementation 'org.springframework.boot:spring-boot-starter-jdbc'
+//	implementation platform('software.amazon.awssdk:bom:2.15.7')
+//	implementation 'software.amazon.awssdk:dynamodb'
+	implementation platform('com.amazonaws:aws-java-sdk-bom:1.11.880')
+	implementation 'com.amazonaws:aws-java-sdk-dynamodb'
+	compileOnly 'org.projectlombok:lombok:1.18.14'
+	annotationProcessor 'org.projectlombok:lombok:1.18.14'
+	compile group: 'com.google.guava', name: 'guava', version: '14.0'
+	testCompileOnly 'org.projectlombok:lombok:1.18.14'
+	testAnnotationProcessor 'org.projectlombok:lombok:1.18.14'
+	compile group: 'org.apache.logging.log4j', name: 'log4j-api', version: '2.13.3'
+	compile group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.13.3'
+	implementation 'org.springframework.boot:spring-boot-starter-jersey'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+	testImplementation('org.springframework.boot:spring-boot-starter-test') {
+		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+	}
+}
+
+test {
+	useJUnitPlatform()
+}
