@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import org.elasticsearch.action.index.IndexResponse;
 import org.elasticsearch.action.search.SearchResponse;
 import org.elasticsearch.action.update.UpdateResponse;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -19,6 +20,7 @@ import com.ExtremelyOkayLending.models.UpdateVerificationStatusRequest;
 
 @RestController
 public class ElasticsearchController {
+    @CrossOrigin
     @GetMapping("/items")
     public ArrayList<LendorItem> getItems(
             @RequestParam(required = false) Long itemId,
@@ -57,6 +59,7 @@ public class ElasticsearchController {
         }
     }
 
+    @CrossOrigin
     @PutMapping("/item")
     public int putItem(@RequestBody LendorItem lendorItem) {
         ElasticsearchItemStoreAdapter esAdapter = new ElasticsearchItemStoreAdapter();
@@ -69,6 +72,7 @@ public class ElasticsearchController {
         }
     }
 
+    @CrossOrigin
     @PutMapping("/item/verify")
     public int verifyItem(@RequestBody UpdateVerificationStatusRequest updateVerificationStatusRequest) {
         ElasticsearchItemStoreAdapter esAdapter = new ElasticsearchItemStoreAdapter();
@@ -81,6 +85,7 @@ public class ElasticsearchController {
         }
     }
 
+    @CrossOrigin
     @PutMapping("/item/availability")
     public int changeItemAvailability(@RequestBody UpdateAvailabilityStatusRequest updateAvailabilityStatusRequest) {
         ElasticsearchItemStoreAdapter esAdapter = new ElasticsearchItemStoreAdapter();
