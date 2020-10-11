@@ -4,7 +4,9 @@ package com.ExtremelyOkayLending.auth;
 import java.util.concurrent.atomic.AtomicLong;
 
 
+
 import com.ExtremelyOkayLending.auth.models.User;
+import com.ExtremelyOkayLending.auth.models.DynamoAdapter;
 import org.springframework.web.bind.annotation.*;
 
 
@@ -15,12 +17,15 @@ public class LoginController {
 
     private static final String template = "Hello, %s!";
     private final AtomicLong counter = new AtomicLong();
+    private final DynamoAdapter adapter = new DynamoAdapter();
 
     @PostMapping("/login")
     public Response login(@RequestBody User user) {
-        //User user = new User((Long)payload.get("user_id"),(String)payload.get("user_name"),(String)payload.get("pass"));
-
-
-        return Response.status(Response.Status.OK).entity(user.toString()).build();
+        try {
+            User lookup = adapter.getUser(user.getUser_name());
+            return Response.status(Response.Status.OK).entity(lookup.toString()).build();
+        } catch(Exception e) {
+            return Response.status(Response.Status.NOT_FOUND).build();
+        }
     }
 }

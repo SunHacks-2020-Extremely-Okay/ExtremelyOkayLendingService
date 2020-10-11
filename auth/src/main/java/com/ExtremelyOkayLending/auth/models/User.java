@@ -4,9 +4,10 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+
+
 @Getter
 @Setter
-
 @NoArgsConstructor
 public class User {
     private Long user_id;
@@ -22,6 +23,10 @@ public class User {
     public User(String user_name, String pass) {
         this.user_name = user_name;
         this.pass = pass;
+    }
+
+    public String getUser_name(){
+        return this.user_name;
     }
 
     @Override
