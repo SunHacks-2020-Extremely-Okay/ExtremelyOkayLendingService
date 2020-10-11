@@ -7,12 +7,14 @@ import java.util.concurrent.atomic.AtomicLong;
 
 import com.ExtremelyOkayLending.auth.models.User;
 import com.ExtremelyOkayLending.auth.models.DynamoAdapter;
+import com.ExtremelyOkayLending.auth.models.UserResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.*;
 
 
 import javax.ws.rs.Consumes;
+import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Request;
 import javax.ws.rs.core.Response;
@@ -27,13 +29,14 @@ public class LoginController {
 
     @PostMapping(value="/login")
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response login(@RequestBody User user) {
+    @Produces(MediaType.APPLICATION_JSON)
+    public UserResponse login(@RequestBody User user) {
         try {
             logger.debug(user.toString());
             User lookup = adapter.getUser(user.getUser_name());
-            return Response.ok(lookup).build();
+            return new UserResponse(lookup.getUser_id());
         } catch(Exception e) {
-            return Response.status(Response.Status.NOT_FOUND).build();
+            return null;
         }
     }
 
@@ -43,7 +46,7 @@ public class LoginController {
 
         if(success) {
             user = adapter.getUser(user.getUser_name());
-            return Response.status(Response.Status.CREATED).entity(user.toString()).build();
+            return Response.status(Response.Status.CREATED).build();
         } else {
             return Response.status(Response.Status.BAD_REQUEST).build();
         }
