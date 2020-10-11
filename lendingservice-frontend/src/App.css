@@ -124,6 +124,11 @@ html {
   color: #302718;
 }
 
+.addEquipment {
+  color: #302718;
+  background-color: #c7ab59;
+}
+
 #equipmentSelector {
   border-color: #302718;
   margin-left: 5px;

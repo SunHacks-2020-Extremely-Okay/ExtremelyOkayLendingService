@@ -9,10 +9,10 @@ class GeoLocator extends React.Component {
             <div>Geolocation is not enabled</div>
         ) : this.props.coords ? (
             <div>
-                <label>Latitude:
+                <label>Latitude:&nbsp;
                     <input type="text" value={this.props.coords.latitude} />
                 </label><br />
-                <label>Longitude:
+                <label>Longitude:&nbsp;
                     <input type="text" value={this.props.coords.longitude} />
                 </label>
             </div>

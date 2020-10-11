@@ -4,8 +4,8 @@ function Equipment() {
     return (
         <label>Type:
             <select id="equipmentSelector">
-                <option value="wifi">Wifi</option>
-                <option value="brandon">Brandon</option>
+                <option value="wifi" className="addEquipment">Wifi</option>
+                <option value="brandon" className="addEquipment">Brandon</option>
             </select>
         </label>
     )

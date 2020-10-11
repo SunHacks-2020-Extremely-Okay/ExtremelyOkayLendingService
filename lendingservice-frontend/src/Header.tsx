@@ -54,17 +54,22 @@ function Header() {
         contentLabel="Add Device To Database"
         >
             <form>
-                <label>Sku:&nbsp;
-                  <input type="text" id="sku"/>
-                </label>
                 
-                <br />
-                <GeoLocator />
-                <Equipment />
-                <div >
-                    <button onClick={submitAddModal}>Submit</button>
-                    <button onClick={closeAddModal}>Close</button>
+                <div className="addEquipment">
+                  <GeoLocator className="addEquipment" />
+                  <Equipment />
+                  <label>Sku:&nbsp;
+                    <input type="text" id="sku"/>
+                  </label>
+                
+                  <br />
+                  <div >
+                      <button onClick={submitAddModal}>Submit</button>
+                      <button onClick={closeAddModal}>Close</button>
+                  </div>
                 </div>
+                
+                
                 
             </form>
         </Modal>
