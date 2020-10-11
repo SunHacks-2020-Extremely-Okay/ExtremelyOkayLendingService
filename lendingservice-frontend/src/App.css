@@ -35,7 +35,7 @@
   text-align: right;
   position: absolute;
   bottom: 0;
-  right: 0;
+  right: 10px;
 }
 
 .tab {
@@ -45,7 +45,6 @@
   border-top: 2px solid;
   border-radius: 5px 5px 0 0;
   text-decoration: none;
-  margin-top: 3.5%;
 }
 
 .tab a {
@@ -55,6 +54,7 @@
   padding-right: 5px;
   background-color: #DED2A8;
   border-style: solid;
+  text-decoration: none;
 }
 
 .tab a:hover {
