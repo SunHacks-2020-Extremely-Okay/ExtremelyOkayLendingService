@@ -30,29 +30,29 @@ public class LoginController {
     @PostMapping(value="/login")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Response login(@RequestBody User user) {
+    public UserResponse login(@RequestBody User user) {
         try {
             logger.debug(user.toString());
             User lookup = adapter.getUser(user.getUser_name());
             if( lookup.getPass().equals(user.getHashedPass())) {
-                return Response.ok(new UserResponse(lookup.getUser_id())).build();
+                return new UserResponse(lookup.getUser_id(),200);
             } else {
-                return Response.status(Response.Status.NOT_FOUND).build();
+                return new UserResponse(404);
             }
         } catch(Exception e) {
-            return Response.status(Response.Status.BAD_REQUEST).build();
+            return new UserResponse(400);
         }
     }
 
     @PostMapping(value="/user")
-    public Response addUser(@RequestBody User user) {
+    public Integer addUser(@RequestBody User user) {
         boolean success = adapter.addUser(user.getUser_name(),user.getPass());
 
         if(success) {
             user = adapter.getUser(user.getUser_name());
-            return Response.status(Response.Status.CREATED).build();
+            return 203;
         } else {
-            return Response.status(Response.Status.BAD_REQUEST).build();
+            return 400;
         }
 
     }
