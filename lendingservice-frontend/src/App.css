@@ -145,6 +145,11 @@ html {
   transition: all 0.4s ease 0s;
 }
 
+.sign:hover {
+  background: #c7ab59;
+  cursor: grab;
+}
+
 /* old stuff */
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
