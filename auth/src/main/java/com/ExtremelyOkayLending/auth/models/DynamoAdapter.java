@@ -46,7 +46,7 @@ public class DynamoAdapter {
 
 
     public User getUser(String user_name) {
-            
+
             Item item = table.getItem("user_name",user_name);
             if( item == null) {
                 return null;
