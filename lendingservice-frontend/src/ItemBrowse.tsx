@@ -9,7 +9,7 @@ function ItemBrowse() {
           {itemsArray.map((value: any, index: any) => {
             return <li key={index}>
               <div className="Item-location">
-                <p>{value.user_id}<br />
+                <p>{value.description}<br />
                 Item ID={value.item_id}<br />
                 Latitude={value.location_x}<br />
                 Latitude={value.location_y}</p>
