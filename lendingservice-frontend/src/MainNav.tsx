@@ -1,5 +1,6 @@
 import React from 'react';
 import SignUpForm from './SignUpForm';
+import Equipment from './Equipment';
 
 
 function MainNav() {
@@ -21,10 +22,7 @@ function MainNav() {
           </datalist>
         </li>
         <li className="leftNav">
-          <select id="equipmentSelector">
-            <option value="wifi">Wifi</option>
-            <option value="brandon">Brandon</option>
-          </select>
+          <Equipment />
         </li>
         <li className="leftNav">      
           <SignUpForm />
