@@ -42,8 +42,11 @@ function Header() {
         <header className="Header">
         <div className="Header-brand"><p>Extremely Okay Lending service</p></div>
         <div className="Header-nav">
+          <a href="https://codedevils.org" target="_blank">
+            <img src="codeDevils.png" className="codeDevils" />
+          </a>
           <div className="tab" onClick={openAddModal}><a href="#">Add</a></div>
-          <div className="tab"><a href="#">Browse</a></div> 
+          <div className="tab"><a href="https://codedevils.org/" target="_blank">CodeDevils</a></div> 
           <div className="tab"><a href="#">Account</a></div>
         </div>
       
