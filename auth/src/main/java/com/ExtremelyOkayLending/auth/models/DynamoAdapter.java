@@ -56,7 +56,8 @@ public class DynamoAdapter {
             if (item == null) {
                 return null;
             }
-            User ret = new User(Long.parseLong((String)item.get("user_id")), (String) item.get("user_name"), (String) item.get("pass"));
+            User ret = new User((String)item.get("user_id"), (String) item.get("user_name"), (String) item.get("pass"));
+            logger.debug(ret.toString());
 
             return ret;
         } catch(Exception e) {
@@ -68,14 +69,27 @@ public class DynamoAdapter {
 
     public boolean addUser(String user_name, String pass) {
 
+        String user_id = UUID.randomUUID().toString();
+
+
         boolean userExists = getUser(user_name) != null;
         if(userExists){
             return false;
         }
+        try {
+            Item item = new Item().withPrimaryKey("user_name", user_name)
+                    .withString("user_id", user_id)
+                    .withString("pass", pass);
+
+            table.putItem(item);
 
 
-        //TODO: implement adding user
-        return true;
+
+            return true;
+        } catch (Exception e) {
+            logger.error(e.getMessage()+"\n"+e.getStackTrace());
+            return false;
+        }
 
     }
 
