@@ -99,6 +99,10 @@
   flex: 5 0;
 }
 
+.Marker-desc {
+  font-size: 18px;
+}
+
 
 html {
   background-color: #DED2A8;
