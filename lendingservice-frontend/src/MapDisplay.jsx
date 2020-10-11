@@ -3,6 +3,11 @@ import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
 
 let itemsArray = require('./items.js');
 
+const mapStyle = {
+  width: '75%',
+  height: '90%'
+}
+
 export class MapDisplay extends Component {
   state = {
     showingInfoWindow: false,
@@ -31,6 +36,7 @@ export class MapDisplay extends Component {
         <Map
           google={this.props.google}
           bounds={bounds}
+          style={mapStyle}
           zoom={13}
           initialCenter={{
             lat: 33.4226584,
