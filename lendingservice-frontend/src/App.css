@@ -107,7 +107,7 @@
 
 .Map-display {
   border: 0;
-  flex: 5 0;
+  flex: 0 5;
 }
 
 .Marker-desc {
