@@ -6,7 +6,8 @@ import java.util.Map;
 import org.elasticsearch.action.search.SearchResponse;
 import org.elasticsearch.search.SearchHit;
 
-import example.models.LendorItem;
+import com.ExtremelyOkayLending.models.LendorItem;
+
 import lombok.NoArgsConstructor;
 
 @NoArgsConstructor
