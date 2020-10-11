@@ -55,7 +55,10 @@ function Header() {
         style={customModalStyles}
         contentLabel="Add Device To Database"
         >
-            <form>
+            <form action="" method="POST">
+                <label>UserID of Lender:
+                    <input type="text" id="user_id" />
+                </label>
                 <label>Sku:&nbsp;
                   <input type="text" id="sku"/>
                 </label>
