@@ -60,6 +60,7 @@
   background-color: #DED2A8;
   color: #302718;
   flex: 0 1 150px;
+  list-style-type: none;
 }
 
 .BrowseItems {
@@ -127,6 +128,22 @@ html {
   border-color: #302718;
 }
 
+.loginLabel {
+  color: #302718;
+}
+
+.sign {
+  color: #fff !important;
+  text-transform: uppercase;
+  text-decoration: none;
+  background: #699E3C;
+  padding: 5px;
+  margin: 10px;
+  border-radius: 10px;
+  display: inline-block;
+  border: none;
+  transition: all 0.4s ease 0s;
+}
 
 /* old stuff */
 @media (prefers-reduced-motion: no-preference) {

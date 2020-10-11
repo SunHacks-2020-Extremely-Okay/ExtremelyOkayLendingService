@@ -1,4 +1,6 @@
 import React from 'react';
+import SignUpForm from './SignUpForm';
+
 
 function MainNav() {
     return(
@@ -24,7 +26,11 @@ function MainNav() {
             <option value="brandon">Brandon</option>
           </select>
         </li>
-        <li className="leftNav">Nav Item 3</li>
+        <li className="leftNav">      
+          <SignUpForm />
+        </li>
+
+
       </ul>
     )
   }
